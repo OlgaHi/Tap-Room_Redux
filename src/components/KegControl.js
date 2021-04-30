@@ -86,11 +86,19 @@ class KegControl extends React.Component {
   
   //edit keg in a list
   handleEditingKegInList = (kegToEdit) => {
-    const editedMasterKegList = this.state.masterKegList
-      .filter((keg) => keg.id !== this.state.selectedKeg.id)
-      .concat(kegToEdit);
+    const { dispatch } = this.props
+    const { name, brand, price, abv, pintsLeft, id } = newKeg;
+    const action = {
+      type: 'ADD_KEG',
+      id: id,
+      name: name,
+      brand: brand,
+      price: price,
+      abv: abv,
+      pintsLeft: pintsLeft
+    }
+    dispatch(action);
     this.setState({
-        masterKegList: editedMasterKegList,
         editing: false,
         selectedKeg: null
       });
