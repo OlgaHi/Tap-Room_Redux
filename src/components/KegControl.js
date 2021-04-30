@@ -2,7 +2,8 @@ import React from 'react';
 import KegList from './KegList';
 import NewKegForm from './NewKegForm';
 import KegDetail from './KegDetail';
-import EditKegForm from './EditKegForm'
+import EditKegForm from './EditKegForm';
+import { connect } from 'react-redux';
 
 const centerAlign = {
   textAlign: "center",
@@ -118,5 +119,7 @@ class KegControl extends React.Component {
     );
   }
 }
+
+KegControl = connect()(KegControl);
 
 export default KegControl;
