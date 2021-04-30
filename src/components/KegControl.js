@@ -56,7 +56,7 @@ class KegControl extends React.Component {
   
   //select a keg
   handleSelectedKeg = (id) => {
-    const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
+    const selectedKeg = this.props.masterKegList.filter(keg => keg.id === id)[0];
     this.setState({selectedKeg: selectedKeg});
   }
 
@@ -91,7 +91,7 @@ class KegControl extends React.Component {
   //edit keg in a list
   handleEditingKegInList = (kegToEdit) => {
     const { dispatch } = this.props
-    const { name, brand, price, abv, pintsLeft, id } = newKeg;
+    const { name, brand, price, abv, pintsLeft, id } = kegToEdit;
     const action = {
       type: 'ADD_KEG',
       id: id,
@@ -122,7 +122,7 @@ class KegControl extends React.Component {
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList}/>
       buttonText = "Return to Menu";
     } else {
-      currentlyVisibleState = <KegList kegList={this.state.masterKegList} onKegSelection={this.handleSelectedKeg} onDecrease={this.handleDecrease}/>
+      currentlyVisibleState = <KegList kegList={this.props.masterKegList} onKegSelection={this.handleSelectedKeg} onDecrease={this.handleDecrease}/>
       buttonText = "Add New Keg";
     }
 
