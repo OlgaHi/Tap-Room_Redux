@@ -4,6 +4,7 @@ import NewKegForm from './NewKegForm';
 import KegDetail from './KegDetail';
 import EditKegForm from './EditKegForm';
 import { connect } from 'react-redux';
+import PropTypes from "prop-types";
 
 const centerAlign = {
   textAlign: "center",
@@ -80,7 +81,7 @@ class KegControl extends React.Component {
     dispatch(action);
     this.setState({selectedKeg: null});
   }
-  }
+  
   
   //handle edit button
   handleEditClick = () => {
@@ -104,10 +105,10 @@ class KegControl extends React.Component {
     this.setState({
         editing: false,
         selectedKeg: null
-      });
+    });
   }
 
-  render(){
+  render() {
     let currentlyVisibleState = null;
     let buttonText = null;
 
@@ -138,6 +139,17 @@ class KegControl extends React.Component {
   }
 }
 
-KegControl = connect()(KegControl);
+KegControl.propTypes = {
+  masterKegList: PropTypes.object
+};
+
+const mapStateToProps = state => {
+  return {
+    masterKegList: state
+  }
+}
+
+KegControl = connect(mapStateToProps)(KegControl);
+
 
 export default KegControl;
