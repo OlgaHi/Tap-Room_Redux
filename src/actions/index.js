@@ -21,3 +21,7 @@ export const addKeg = (keg) => {
     id: id
   };
 };
+
+export const kegEdit = () => ({
+  type: c.EDIT_KEG
+});
