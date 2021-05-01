@@ -5,6 +5,7 @@ import KegDetail from './KegDetail';
 import EditKegForm from './EditKegForm';
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
+import * as a from './../actions';
 
 const centerAlign = {
   textAlign: "center",
@@ -30,30 +31,17 @@ class KegControl extends React.Component {
       });
     } else {
       const { dispatch } = this.props;
-      const action = {
-      type: 'TOGGLE_FORM'
-    }
-    dispatch(action);
+      const action = a.toggleForm();
+      dispatch(action);
     }
   }
   
   //add new keg into array
   handleAddingNewKegToList = (newKeg) => {
     const { dispatch } = this.props;
-    const { name, brand, price, abv, pintsLeft, id } = newKeg;
-    const action = {
-      type: 'ADD_KEG',
-      id: id,
-      name: name,
-      brand: brand,
-      price: price,
-      abv: abv,
-      pintsLeft: pintsLeft
-    }
+    const action = a.addKeg(newKeg);
     dispatch(action);
-    const action2 = {
-      type: 'TOGGLE_FORM'
-    }
+    const action2 = a.toggleForm();
     dispatch(action2);
   }
 
@@ -78,10 +66,7 @@ class KegControl extends React.Component {
   //delete a keg
   handleDeletingKeg = (id) => {
     const { dispatch } = this.props;
-    const action = {
-      type: 'DELETE_KEG',
-      id: id
-    }
+    const action = a.deleteKeg(id);
     dispatch(action);
     this.setState({selectedKeg: null});
   }
@@ -95,16 +80,7 @@ class KegControl extends React.Component {
   //edit keg in a list
   handleEditingKegInList = (kegToEdit) => {
     const { dispatch } = this.props
-    const { name, brand, price, abv, pintsLeft, id } = kegToEdit;
-    const action = {
-      type: 'ADD_KEG',
-      id: id,
-      name: name,
-      brand: brand,
-      price: price,
-      abv: abv,
-      pintsLeft: pintsLeft
-    }
+    const action = a.addKeg(kegToEdit)
     dispatch(action);
     this.setState({
         editing: false,
