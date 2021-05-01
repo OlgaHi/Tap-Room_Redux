@@ -48,13 +48,13 @@ class KegControl extends React.Component {
   
   //select a keg
   handleSelectedKeg = (id) => {
-    const selectedKeg = this.props.masterKegList.filter(keg => keg.id === id)[0];
+    const selectedKeg = this.props.masterKegList[id];
     this.setState({selectedKeg: selectedKeg});
   }
 
   //decrease pints
   handleDecrease = (id) => {
-    const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
+    const selectedKeg = this.props.masterKegList[id];
     if (selectedKeg.pintsLeft > 0) {
       selectedKeg.pintsLeft --;
       this.setState({selectedKeg: null});
@@ -126,7 +126,7 @@ KegControl.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    masterKegList: state,
+    masterKegList: state.masterKegList,
     formVisibleOnPage: state.formVisibleOnPage
   }
 }
