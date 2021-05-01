@@ -27,4 +27,8 @@ describe('help keg actions', () => {
       id: 1
     });
   });
+
+  it("editKeg should create EDIT_KEG action", () => {
+    expect(actions.editKeg()).toEqual({ type: c.EDIT_KEG });
+  });
 });

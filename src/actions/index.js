@@ -22,6 +22,6 @@ export const addKeg = (keg) => {
   };
 };
 
-export const kegEdit = () => ({
+export const editKeg = () => ({
   type: c.EDIT_KEG
 });
