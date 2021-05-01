@@ -18,7 +18,6 @@ class KegControl extends React.Component {
     super(props);
     this.state = {
       selectedKeg: null,
-      editing: false
     }
   }
   
