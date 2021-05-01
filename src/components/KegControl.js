@@ -27,6 +27,7 @@ class KegControl extends React.Component {
       this.setState({
         selectedKeg: null,
       });
+
     } else {
       const { dispatch } = this.props;
       const action = a.toggleForm();
@@ -82,8 +83,10 @@ class KegControl extends React.Component {
     const { dispatch } = this.props
     const action = a.addKeg(kegToEdit)
     dispatch(action);
+    const action2 = a.editKeg();
+    dispatch(action2);
     this.setState({
-        selectedKeg: null
+      selectedKeg: null
     });
   }
 
@@ -121,7 +124,7 @@ class KegControl extends React.Component {
 KegControl.propTypes = {
   masterKegList: PropTypes.object,
   formVisibleOnPage: PropTypes.bool,
-  editing: PropTypes.bool,
+  editing: PropTypes.bool
 };
 
 const mapStateToProps = state => {
