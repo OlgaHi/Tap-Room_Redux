@@ -26,7 +26,6 @@ class KegControl extends React.Component {
     if (this.state.selectedKeg != null) {
       this.setState({
         selectedKeg: null,
-        editing: false
       });
     } else {
       const { dispatch } = this.props;
@@ -73,7 +72,9 @@ class KegControl extends React.Component {
   
   //handle edit button
   handleEditClick = () => {
-    this.setState({editing: true});
+    const { dispatch } = this.props;
+    const action = a.editKeg();
+    dispatch(action);
   }
   
   //edit keg in a list
@@ -82,7 +83,6 @@ class KegControl extends React.Component {
     const action = a.addKeg(kegToEdit)
     dispatch(action);
     this.setState({
-        editing: false,
         selectedKeg: null
     });
   }
@@ -91,7 +91,7 @@ class KegControl extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if (this.state.editing ) {      
+    if (this.props.editing ) {      
       currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} />
       buttonText = "Return to Menu";
     } else if (this.state.selectedKeg != null) {
