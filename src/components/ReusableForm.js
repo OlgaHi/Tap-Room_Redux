@@ -2,9 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function ReusableForm(props) {
+
   const formStyles = {
-    
-    
     padding: "4%",
     color: "AntiqueWhite",
   };
@@ -17,7 +16,7 @@ function ReusableForm(props) {
             <input
               type='text'
               name='name'
-              placeholder='Name' 
+              placeholder='Name'
               className="form-control"
               required />
           </div>

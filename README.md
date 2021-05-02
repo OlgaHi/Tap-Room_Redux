@@ -1,8 +1,8 @@
-# **Tap Room**
+# **Tap Room Redux**
 By _Olha Hizhytska_
 
 ## Description
-This React application was created with full CRUD functionality, that uses local and shared state, includes functional and class components. Using this application, the user can create, edit and delete a keg, read all kegs created in a list, view keg details, decrease the pint quantity of the keg.
+This React application was created with a Redux store, includes full CRUD functionality, using functional and class components. All reducers and actions have been tested. To avois bugs, I implemented action creators and constans. Using this application, the user can create, edit and delete a keg, read all kegs created in a list, view keg details, decrease the pint quantity of the keg.
 
 <div alighn="center">
 
@@ -29,11 +29,12 @@ This React application was created with full CRUD functionality, that uses local
 
 - Clone this repository to your desktop, using next command:
 
-  git clone https://github.com/OlgaHi/Tap-Room.git
+ https://github.com/OlgaHi/Tap-Room_Redux.git 
 
 - Open in text editor to view code and make changes
   - Open terminal and navigate to tap-room directory
   - Use the command `npm install` to download and install all necessary packages for the project to function
+  - Use the command `npm install redux@4.0.5 react-redux@7.1.3` to install redux
 
 <details>
 <summary>Getting Started with Create React App</summary>
@@ -42,9 +43,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, you can run: 
 
-### `npm start`
+ #### `npm start`
+
+
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -112,7 +115,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 #### View In Browser
 
 - To Build and view in browser
-  - Navigate to tap-room directory and use the command `npm start`
+  - Navigate to tap-room_redux directory and use the command `npm start`
+
+#### Run tests
+
+- To run tests
+  - Navigate to tap-room_redux directory and use the command `npm test`
   
 
 
@@ -126,8 +134,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - JSX
 - Node
 - npm
-- React
+- Reac
+- Redux
 - webpack
+- Jest
 
 ## Known Bugs
 
